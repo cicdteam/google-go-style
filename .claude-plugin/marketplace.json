@@ -1,18 +1,22 @@
 {
-  "$schema": "https://www.schemastore.org/claude-code-marketplace.json",
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "cicdteam",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Claude Code marketplace hosting the google-go-style skill — a digest of the Google Go Style Guide.",
   "owner": {
     "name": "Andrei Taranik",
     "url": "https://github.com/cicdteam"
   },
+  "metadata": {
+    "pluginRoot": "./plugins"
+  },
   "plugins": [
     {
       "name": "google-go-style",
       "source": "./plugins/google-go-style",
+      "skills": ["./skills/google-go-style"],
       "description": "Skill that codifies the Google Go Style Guide into actionable rules for writing, reviewing, and refactoring Go code.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "author": {
         "name": "Andrei Taranik",
         "url": "https://github.com/cicdteam"

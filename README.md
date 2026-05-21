@@ -40,8 +40,14 @@ specific topic comes up.
 
 ## Install
 
+### Claude Code (native plugin)
+
     claude plugin marketplace add cicdteam/google-go-style
     claude plugin install google-go-style@cicdteam
+
+### Cross-agent (Claude Code, Cursor, Codex, OpenCode, …)
+
+    npx skills add cicdteam/google-go-style
 
 After install, Claude loads the skill automatically when triggers in its
 description match (writing or reviewing Go, error handling, panics, tests, API
