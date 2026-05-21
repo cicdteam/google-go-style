@@ -1,0 +1,43 @@
+name: Validate manifests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check JSON syntax with jq
+        run: |
+          jq empty .claude-plugin/marketplace.json
+          jq empty plugins/google-go-style/.claude-plugin/plugin.json
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install ajv-cli
+        run: npm install -g ajv-cli ajv-formats
+
+      - name: Fetch published schemas
+        run: |
+          curl -fsSL https://www.schemastore.org/claude-code-marketplace.json \
+            -o /tmp/marketplace.schema.json
+          curl -fsSL https://www.schemastore.org/claude-code-plugin-manifest.json \
+            -o /tmp/plugin.schema.json
+
+      - name: Validate marketplace.json
+        run: |
+          ajv validate -c ajv-formats --strict=false \
+            -s /tmp/marketplace.schema.json \
+            -d .claude-plugin/marketplace.json
+
+      - name: Validate plugin.json
+        run: |
+          ajv validate -c ajv-formats --strict=false \
+            -s /tmp/plugin.schema.json \
+            -d plugins/google-go-style/.claude-plugin/plugin.json

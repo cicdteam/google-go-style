@@ -1,0 +1,15 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Claude Code — personal/local files
+.claude/CLAUDE.md
+.claude/settings.local.json
+.claude/docs/
+CLAUDE.local.md

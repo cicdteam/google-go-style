@@ -1,0 +1,12 @@
+google-go-style
+Copyright 2026 Andrei Taranik
+
+This product includes derivative work based on the Google Go Style Guide
+(https://google.github.io/styleguide/go/), © Google LLC, licensed under the
+Creative Commons Attribution 3.0 License
+(https://creativecommons.org/licenses/by/3.0/).
+
+The skill content (SKILL.md and supporting reference files under
+plugins/google-go-style/skills/google-go-style/) is original work by
+Andrei Taranik, licensed under the Apache License, Version 2.0
+(see LICENSE).

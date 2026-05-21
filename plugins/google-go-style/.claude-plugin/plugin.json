@@ -1,0 +1,14 @@
+{
+  "$schema": "https://www.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "google-go-style",
+  "version": "0.1.0",
+  "description": "Skill that codifies the Google Go Style Guide into actionable rules for writing, reviewing, and refactoring Go code.",
+  "author": {
+    "name": "Andrei Taranik",
+    "url": "https://github.com/cicdteam"
+  },
+  "homepage": "https://github.com/cicdteam/google-go-style",
+  "repository": "https://github.com/cicdteam/google-go-style",
+  "license": "Apache-2.0",
+  "keywords": ["go", "golang", "style-guide", "code-style", "skill"]
+}
