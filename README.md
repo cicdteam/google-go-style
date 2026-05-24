@@ -1,5 +1,7 @@
 # google-go-style
 
+[![Listed on ClaudePluginHub](https://www.claudepluginhub.com/badge/cicdteam-google-go-style-plugins-google-go-style)](https://www.claudepluginhub.com/plugins/cicdteam-google-go-style-plugins-google-go-style?ref=badge)
+
 A Claude Code plugin that ships a single skill: `google-go-style`. The skill
 codifies the [Google Go Style Guide](https://google.github.io/styleguide/go/)
 into actionable rules that Claude consults whenever you write, review, or
