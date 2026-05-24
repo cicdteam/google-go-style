@@ -16,9 +16,17 @@ jobs:
           jq empty .claude-plugin/marketplace.json
           jq empty plugins/google-go-style/.claude-plugin/plugin.json
 
+      - name: Check version consistency
+        run: ./scripts/check-version-consistency.sh
+
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+
+      - name: Validate with Claude Code CLI (strict)
+        run: |
+          npx -y @anthropic-ai/claude-code@latest plugin validate . --strict
+          npx -y @anthropic-ai/claude-code@latest plugin validate ./plugins/google-go-style --strict
 
       - name: Install ajv-cli
         run: npm install -g ajv-cli ajv-formats
@@ -41,3 +49,19 @@ jobs:
           ajv validate -c ajv-formats --strict=false \
             -s /tmp/plugin.schema.json \
             -d plugins/google-go-style/.claude-plugin/plugin.json
+
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check markdown links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --max-retries 3
+            --retry-wait-time 5
+            --accept 200,429
+            './**/*.md'
+          fail: true
